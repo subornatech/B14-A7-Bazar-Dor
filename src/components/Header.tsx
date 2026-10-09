@@ -1,13 +1,16 @@
 import Image from 'next/image';
 import NavLinks from './NavLinks';
+import Marquee from './Marquee';
 
 
 const Header = () => {
     const  date = new Date().toLocaleDateString("bn-BD",{dateStyle:"full"});
     return (
-        <div>
+        <div className='bg-[#E1E8E1]'>
       
-   <div className='max-w-7xl mx-auto mt-7 '>
+       <div>
+
+         <div className='max-w-7xl mx-auto py-7 '>
 
            <div className='flex gap-155 justify-between '>
 
@@ -38,8 +41,19 @@ const Header = () => {
            </div>
 
            <NavLinks></NavLinks>
+          
             
         </div>
+
+         <Marquee></Marquee>
+
+
+
+
+
+
+
+  </div>
 
   
 

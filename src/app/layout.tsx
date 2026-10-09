@@ -21,9 +21,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${NotoSerifBengali.className}  h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <main className="bg-[#E1E8E1]">
 
+         <Header></Header>
         {children}
-        <Header></Header>
+        </main>
+      
         </body>
     </html>
   );
