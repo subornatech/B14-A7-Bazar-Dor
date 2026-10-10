@@ -1,3 +1,4 @@
+import AllProducts from "@/components/AllProducts";
 import Banner from "@/components/Banner";
 import PriceDown from "@/components/PriceDown";
 import PriceUp from "@/components/PriceUp";
@@ -10,6 +11,7 @@ export default function Home() {
       <Banner></Banner>
       <PriceUp></PriceUp>
       <PriceDown></PriceDown>
+      <AllProducts></AllProducts>
      
 
     </div>
