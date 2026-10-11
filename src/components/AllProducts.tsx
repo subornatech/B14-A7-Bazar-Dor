@@ -1,3 +1,4 @@
+import baseUrl from "@/Service/baseUrl";
 import ProductsCard from "./ProductsCard";
 
 interface Iallproducts {
@@ -14,10 +15,10 @@ interface Iallproducts {
 
 
 const AllProducts =async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+    const res = await fetch(`${baseUrl}/products`);
     const data = await res.json();
     const allProducts :Iallproducts[] = data;
-    console.log(allProducts);
+    // console.log(allProducts);
   
     return (
         <div className="mt-12">

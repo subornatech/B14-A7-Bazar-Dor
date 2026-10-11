@@ -1,4 +1,5 @@
 import MarqueeText from "react-marquee-text";
+import baseUrl from "../Service/baseUrl"
 
 interface Headlines{
     id:number,
@@ -15,7 +16,7 @@ interface Headlines{
 
 }
 const Marquee = async() => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+    const res = await fetch(`${baseUrl}/products`);
     const data = await res.json();
     const headlines : Headlines[] = data;
     // console.log(headlines)
@@ -33,7 +34,7 @@ const Marquee = async() => {
                        
                         <span className={ head.change?.dir === "down" ? 
                             "price-down text-[#05893E] " : head.change?.dir === "up" ? "price-up text-[#D03739]" : "price-flat text-gray-600" } > 
-                            {head.change?.dir === "up" ? "▲" : head.change?.dir === "down" ? "▼" : "-"}{" "}
+                            {head.change?.dir === "up" ? "▲" : head.change?.dir === "down" ? "▼" : ""}{" "}
                              {head.change?.pct ?? 0}% </span>
                               <span className="mx-5"></span>
                        

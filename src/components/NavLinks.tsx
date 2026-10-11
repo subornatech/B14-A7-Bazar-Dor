@@ -1,5 +1,6 @@
 
 
+import baseUrl from '@/Service/baseUrl';
 import Link from 'next/link';
 
 interface Navs{
@@ -11,7 +12,7 @@ interface Navs{
 }
 
 const NavLinks =async () => {
-    const res = await fetch('https://api.abcz.workers.dev/api/bazardor/categories')
+    const res = await fetch(`${baseUrl}/categories`)
     const data = await res.json()
     const navsData:Navs[] = data;
    
@@ -20,13 +21,15 @@ const NavLinks =async () => {
 
             <div className='flex gap-10  my-10 ml-10'>
                 {
-                    navsData.map(nav=><Link href={nav.id} key={nav.slug}>
+                    navsData.map((nav,i)=>
+                        <Link href={`/category/${nav.slug} `} key={i}>
                        <div className='flex justify-center items-center gap-1'>
                          <h1>{nav.icon}</h1>
                         <p>{nav.nameBn}</p>
                        </div>
                     
-                    </Link>)
+                    </Link>
+                   )
 
                 }
             </div>

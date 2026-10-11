@@ -1,3 +1,6 @@
+
+
+import baseUrl from "@/Service/baseUrl";
 import PriceUpCard from "./PriceUpCard";
 interface IpriceUp{
     image:string,
@@ -14,7 +17,7 @@ interface IpriceUp{
 
 
 const PriceUp = async() => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+    const res = await fetch(`${baseUrl}/products`);
     const data =await res.json();
     const priceUp = data;
      const priceUpData:IpriceUp[] = priceUp.filter((priceU :IpriceUp) => priceU.change.dir === "up")
