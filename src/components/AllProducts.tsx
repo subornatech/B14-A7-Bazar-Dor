@@ -1,8 +1,10 @@
 import baseUrl from "@/Service/baseUrl";
 import ProductsCard from "./ProductsCard";
 
+
 interface Iallproducts {
       id:number,
+      slug:string,
     nameBn:string,
     image:string,
     change:{ 
@@ -21,6 +23,8 @@ const AllProducts =async () => {
     // console.log(allProducts);
   
     return (
+     
+       
         <div className="mt-12">
 
             <div>
@@ -35,6 +39,8 @@ const AllProducts =async () => {
             </div>
             
         </div>
+       
+      
     );
 };
 

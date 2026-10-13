@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import NavLinks from './NavLinks';
 import Marquee from './Marquee';
+import UserInfo from './UserInfo';
 
 
 const Header = () => {
@@ -34,10 +35,7 @@ const Header = () => {
 
             </div>
 
-            <div className='flex  gap-4' >
-                <button className='btn'>সাইন ইন</button>
-                <button className='btn bg-[#05893E] shadow-md text-white'>সাইন আপ</button>
-            </div>
+          <UserInfo></UserInfo>
            </div>
 
            <NavLinks></NavLinks>

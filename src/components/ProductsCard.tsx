@@ -1,5 +1,8 @@
+import Link from "next/link";
+
  interface IproductsCard{
     id:number,
+    slug:string,
     nameBn:string,
     image:string,
     change:{ 
@@ -13,7 +16,9 @@
 
 const ProductsCard = ({allProduct} :{allProduct:IproductsCard}) => {
     return (
-       
+           
+         <Link href={`/product/${allProduct.slug}`}>
+         
             <div className=' w-104  '>
 
          <div className='card bg-[#FAFCFA] px-4 py-8  h-46'>
@@ -63,6 +68,8 @@ const ProductsCard = ({allProduct} :{allProduct:IproductsCard}) => {
          </div>
             
         </div>
+         
+         </Link>
     );
 };
 
