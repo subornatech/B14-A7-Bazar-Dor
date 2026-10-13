@@ -23,6 +23,14 @@ const SignInPage = () => {
         if(error){
             console.log(error);
         }
+    } 
+
+    const handleGoogleSignIn = async()=>{
+        const data =await signIn.social({
+            provider:'google'
+
+        });
+        console.log(data)
     }
 
     return (
@@ -44,6 +52,11 @@ const SignInPage = () => {
 
            <button className="btn bg-[#05893E] mt-7 text-white text-xl h-14 shadow-xl">অ্যাকাউন্ট তৈরি করুন</button>
            </fieldset>
+
+           <div className="flex gap-3">
+            <button onClick={handleGoogleSignIn} className="btn">SignIn With Google</button>
+            <button className="btn">SignIn With GitHub</button>
+           </div>
             </form>
             
         </div>
