@@ -31,7 +31,14 @@ const SignInPage = () => {
 
         });
         console.log(data)
-    }
+    } 
+
+    const handleGithubSignIn = async () => {
+    const data = await signIn.social({
+        provider: "github"
+    }) 
+    console.log(data)
+}
 
     return (
       <div>
@@ -55,7 +62,7 @@ const SignInPage = () => {
 
            <div className="flex gap-3">
             <button onClick={handleGoogleSignIn} className="btn">SignIn With Google</button>
-            <button className="btn">SignIn With GitHub</button>
+            <button onClick={handleGithubSignIn} className="btn">SignIn With GitHub</button>
            </div>
             </form>
             
