@@ -2,6 +2,7 @@ import Image from 'next/image';
 import NavLinks from './NavLinks';
 import Marquee from './Marquee';
 import UserInfo from './UserInfo';
+import Link from 'next/link';
 
 
 const Header = () => {
@@ -18,9 +19,9 @@ const Header = () => {
 
              <div className='flex gap-5'>
 
-            <div>
-                <Image className='w-16 h-16 ' src={'/Stack.png'} width={100} height={100} alt="logo"></Image>
-            </div>  
+            <Link href={'/'}>
+                <Image className='w-16 h-16 bg-[#05893E] rounded-3xl p-3  ' src={'/logo-icon.png'} width={100} height={100} alt="logo"></Image>
+            </Link>  
 
             <div> 
 

@@ -19,13 +19,13 @@ const NavLinks =async () => {
     return (
         <div className=''>
 
-            <div className='flex gap-10  my-10 ml-10'>
+            <div className='flex gap-12  my-10 ml-10'>
                 {
                     navsData.map((nav,i)=>
                         <Link href={`/category/${nav.slug} `} key={i}>
                        <div className='flex justify-center items-center gap-1'>
-                         <h1>{nav.icon}</h1>
-                        <p>{nav.nameBn}</p>
+                         <h1 className='text-xl'>{nav.icon}</h1>
+                        <p className='text-xl'>{nav.nameBn}</p>
                        </div>
                     
                     </Link>

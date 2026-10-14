@@ -1,6 +1,7 @@
 "use client"
 
 
+import SocialLogin from "@/components/SocialLogin";
 import { signUp } from "../../lib/auth-client";
 import { redirect } from "next/navigation";
 
@@ -27,7 +28,9 @@ const SignUpPage = () => {
         console.log(error)
     }
 
-   }    
+   } 
+   
+     
 
     
     return (
@@ -57,6 +60,10 @@ const SignUpPage = () => {
   <input type="password" name="password" className="input w-full h-12" placeholder="কমপক্ষে ৮ অক্ষর" />
 
   <button type="submit" className="btn bg-[#05893E] mt-4 text-white text-xl ">অ্যাকাউন্ট তৈরি করুন</button>
+
+     <div className="divider divider-neutral text-base">অথবা</div>
+
+     <SocialLogin></SocialLogin>
 </fieldset>
             </form>
             
