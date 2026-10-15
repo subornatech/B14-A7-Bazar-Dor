@@ -17,7 +17,7 @@ import Link from "next/link";
 const ProductsCard = ({allProduct} :{allProduct:IproductsCard}) => {
     return (
            
-         <Link href={`/product/${allProduct.slug}`}>
+         <Link href={`/product/${allProduct.id}`}>
          
             <div className=' w-104  '>
 
