@@ -29,11 +29,11 @@ interface IProductDetails {
 const ProductDetailsPage = async ({
   params,
 }: {
-  params: Promise<{ productId: string }>;
+  params: Promise<{slug: string }>;
 }) => {
-  const { productId } = await params;
+  const { slug } = await params;
 
-  const res = await fetch(`${baseUrl}/products/${productId}`);
+  const res = await fetch(`${baseUrl}/products/${slug}`);
 
   if (!res.ok) {
     throw new Error("Product details fetch failed");
@@ -86,8 +86,6 @@ const ProductDetailsPage = async ({
               </p>
             </div>
           </div>
-
-          {/* Today's price */}
           <div className="rounded-2xl bg-[#F0F5F0] px-8 py-6 text-center">
             <h3 className="text-lg">আজকের দাম</h3>
 
@@ -122,14 +120,12 @@ const ProductDetailsPage = async ({
         </div>
       </div>
 
-      {/* Price summary */}
       <div className="mt-8 rounded-2xl bg-[#FAFCFA] px-6 py-8 shadow-sm md:px-12">
         <h2 className="mb-6 text-2xl font-semibold">
           দামের সারসংক্ষেপ
         </h2>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {/* Minimum price */}
           <div className="rounded-xl border border-green-200 bg-white p-6">
             <p className="text-gray-600 text-lg">সর্বনিম্ন দাম</p>
 
@@ -141,8 +137,6 @@ const ProductDetailsPage = async ({
              সবচেয়ে কম দামের বাজার
             </p>
           </div>
-
-          {/* Maximum price */}
           <div className="rounded-xl border border-red-200 bg-white p-6">
             <p className="text-gray-700 text-lg">সর্বাধিক দাম</p>
 

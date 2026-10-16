@@ -12,7 +12,11 @@ const UserInfo = () => {
     const user =session?.user;
 
     const handleSignout = async()=>{
-        await authClient.signOut();
+     
+    await authClient.signOut();
+     window.location.replace("/");
+
+
 
     }
     return (

@@ -1,65 +1,53 @@
-import Image from 'next/image';
-import NavLinks from './NavLinks';
-import Marquee from './Marquee';
-import UserInfo from './UserInfo';
-import Link from 'next/link';
 
+import Image from "next/image";
+import Link from "next/link";
+import NavLinks from "./NavLinks";
+import Marquee from "./Marquee";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
-    const  date = new Date().toLocaleDateString("bn-BD",{dateStyle:"full"});
-    return (
-        <div className='bg-[#E1E8E1]'>
+  const date = new Date().toLocaleDateString("bn-BD", {
+    dateStyle: "full",
+  });
+
+  return (
+    <header className="bg-[#E1E8E1]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-3 py-4 sm:py-6 lg:py-7">
       
-       <div>
+          <Link  href="/" className="flex min-w-0 items-center gap-3 sm:gap-5">
+            <Image
+              className="h-12 w-12 shrink-0 rounded-2xl bg-[#05893E] p-2 sm:h-16 sm:w-16 sm:rounded-3xl sm:p-3"
+              src="/logo-icon.png"
+              width={100}
+              height={100}
+              alt="বাজার দর লোগো"
+              priority
+            />
 
-         <div className='max-w-7xl mx-auto py-7 '>
+            <div className="min-w-0">
+              <h2 className="text-xl font-extrabold sm:text-2xl lg:text-3xl">
+                বাজার দর
+              </h2>
 
-           <div className='flex gap-155 justify-between '>
-
-
-             <div className='flex gap-5'>
-
-            <Link href={'/'}>
-                <Image className='w-16 h-16 bg-[#05893E] rounded-3xl p-3  ' src={'/logo-icon.png'} width={100} height={100} alt="logo"></Image>
-            </Link>  
-
-            <div> 
-
-                <h2 className='font-extrabold text-3xl'>বাজার দর</h2>
-                <p className='text-base'>{date}</p>
-
+              <p className="mt-1 text-xs sm:text-sm lg:text-base">
+                {date}
+              </p>
             </div>
+          </Link>
 
-        
-
-
-
-            </div>
-
-          <UserInfo></UserInfo>
-           </div>
-
-           <NavLinks></NavLinks>
-          
-            
+          <div className="shrink-0">
+            <UserInfo />
+          </div>
         </div>
+        <div className="pb-3 sm:pb-4">
+          <NavLinks />
+        </div>
+      </div>
 
-         <Marquee></Marquee>
-
-
-
-
-
-
-
-  </div>
-
-  
-
-       </div>
-            
-    
-    );
+      <Marquee />
+    </header>
+  );
 };
 
 export default Header;

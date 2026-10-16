@@ -27,11 +27,11 @@ const AllProducts =async () => {
        
         <div className="mt-12">
 
-            <div>
+            <div className="space-y-2 ">
                 <h1 className="font-bold text-2xl">সব পণ্য</h1>
                 <p>মোট {allProducts.length}টি পণ্য দেখানো হচ্ছে</p>
 
-                <div className="grid grid-cols-3 gap-5 space-y-3 mt-6 ">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6  mt-6">
                     {
                         allProducts.map((allProduct:Iallproducts)=><ProductsCard key={allProduct.id} allProduct={allProduct}></ProductsCard>)
                     }

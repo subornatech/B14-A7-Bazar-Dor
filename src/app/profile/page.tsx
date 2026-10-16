@@ -3,11 +3,14 @@
 
 import { authClient, useSession } from "@/lib/auth-client";
 import Image from "next/image";
+import Link from "next/link";
 import { FiLogOut } from "react-icons/fi";
 
 const Profile = () => {
   const { data: session } = useSession();
   const user = session?.user;
+
+
 
   const handleSignout = async () => {
     await authClient.signOut();
@@ -88,12 +91,12 @@ const Profile = () => {
               />
             </fieldset>
 
-           
-               <button type="submit"
-                   className="btn mt-2 h-12 w-2xl border-none bg-[#05893E] text-base text-white shadow-sm hover:bg-[#047532] sm:h-14 sm:text-lg">
 
-                   আপডেট
-                  </button>
+                  <Link href="/profile/update"
+                  type="submit"
+                className="btn mt-2 h-12 w-2xl border-none bg-[#05893E] text-base text-white shadow-sm hover:bg-[#047532] sm:h-14 sm:text-lg">
+                  আপডেট
+               </Link>
 
           </form>
         </div>
