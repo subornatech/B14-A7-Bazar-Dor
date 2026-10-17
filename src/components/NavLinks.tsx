@@ -1,6 +1,10 @@
 
+"use client";
+
 import baseUrl from "@/Service/baseUrl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface Navs {
   id: string;
@@ -9,11 +13,24 @@ interface Navs {
   nameBn: string;
 }
 
-const NavLinks = async () => {
-  const res = await fetch(`${baseUrl}/categories`);
-  const data = await res.json();
+const NavLinks = () => {
+  const pathname = usePathname();
+  const [navsData, setNavsData] = useState<Navs[]>([]);
 
-  const navsData: Navs[] = Array.isArray(data) ? data : [];
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch(`${baseUrl}/categories`);
+        const data = await res.json();
+
+        setNavsData(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   return (
     <nav className="w-full">
@@ -23,29 +40,36 @@ const NavLinks = async () => {
           overflow-x-auto whitespace-nowrap
           py-3
           sm:gap-6
-           lg:gap-4
+          lg:gap-4
           lg:overflow-visible
         "
       >
-        {navsData.map((nav) => (
-          <Link
-            href={`/category/${nav.slug}`}
-            key={nav.id}
-            className=" flex shrink-0 items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-medium text-gray-800
-              transition-colors duration-200
-              hover:bg-[#05893E]/10
-              hover:text-[#05893E]
-              sm:gap-2 sm:text-base
-              lg:text-lg
-            "
-          >
-            <span className="text-base sm:text-lg lg:text-xl">
-              {nav.icon}
-            </span>
+        {navsData.map((nav) => {
+          const isActive = pathname === `/category/${nav.slug}`;
 
-            <span>{nav.nameBn}</span>
-          </Link>
-        ))}
+          return (
+            <Link
+              href={`/category/${nav.slug}`}
+              key={nav.id}
+              className={`
+                flex shrink-0 items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-medium
+                transition-colors duration-200
+                sm:gap-2 sm:text-base lg:text-lg
+                ${
+                  isActive
+                    ? "bg-[#05893E] text-white"
+                    : "text-gray-800 hover:bg-[#05893E]/10 hover:text-[#05893E]"
+                }
+              `}
+            >
+              <span className="text-base sm:text-lg lg:text-xl">
+                {nav.icon}
+              </span>
+
+              <span>{nav.nameBn}</span>
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

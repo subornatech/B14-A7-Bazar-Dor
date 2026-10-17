@@ -1,5 +1,7 @@
 
 import baseUrl from "@/Service/baseUrl";
+import Link from "next/link";
+import { FiChevronRight } from "react-icons/fi";
 
 interface IMarket {
   market: string;
@@ -55,7 +57,23 @@ const ProductDetailsPage = async ({
   return (
     <div className="mx-auto min-h-screen max-w-7xl px-4 py-8">
      
+        <div  className="mb-5 flex flex-wrap items-center gap-2 text-sm sm:text-base">
+        <Link  href="/"  className="inline-flex items-center gap-1 text-gray-500 transition hover:text-[#05893E]"  >
+        <span>হোম</span>
+      </Link>
 
+      <FiChevronRight className="text-gray-600" size={16} />
+
+      <span className="text-gray-700 transition hover:text-[#05893E]">
+      {data.categoryNameBn}
+      </span>
+
+      <FiChevronRight className="text-gray-600" size={16} />
+
+      <span className="font-semibold text-[#05893E]"   >
+        {data.nameBn}
+      </span>
+    </div>
     
       <div className="mt-8 rounded-2xl bg-[#FAFCFA] px-6 py-8 shadow-sm md:px-12">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-center">
