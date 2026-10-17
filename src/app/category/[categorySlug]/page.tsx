@@ -1,7 +1,7 @@
 import CategorySort from "@/components/CategorySort";
 import baseUrl from "@/Service/baseUrl";
 import Link from "next/link";
-import { FiArrowLeft, FiHome } from "react-icons/fi";
+import { FiArrowLeft } from "react-icons/fi";
 
 interface IcategoryProduct {
   id: number;

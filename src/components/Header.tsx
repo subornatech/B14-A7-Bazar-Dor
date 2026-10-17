@@ -4,6 +4,7 @@ import Link from "next/link";
 import NavLinks from "./NavLinks";
 import Marquee from "./Marquee";
 import UserInfo from "./UserInfo";
+import logoImage from "../../public/logo-icon.png"
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -18,7 +19,7 @@ const Header = () => {
           <Link  href="/" className="flex min-w-0 items-center gap-3 sm:gap-5">
             <Image
               className="h-12 w-12 shrink-0 rounded-2xl bg-[#05893E] p-2 sm:h-16 sm:w-16 sm:rounded-3xl sm:p-3"
-              src="/logo-icon.png"
+              src={logoImage}
               width={100}
               height={100}
               alt="বাজার দর লোগো"
