@@ -6,19 +6,17 @@ import { mongodbAdapter } from "@better-auth/mongo-adapter";
 const mongoUrl = process.env.MONGODB_URL;
 
 if (!mongoUrl) {
-  throw new Error(
-    "MONGODB_URL is missing. Please configure it in your environment variables."
-  );
+  throw new Error("MONGODB_URL is missing in environment variables");
 }
 
 const client = new MongoClient(mongoUrl);
-
 const db = client.db("b14-a7-bazar-dor");
 
 export const auth = betterAuth({
-  database: mongodbAdapter(db, {
-    client,
-  }),
+  baseURL: process.env.BETTER_AUTH_URL,
+  secret: process.env.BETTER_AUTH_SECRET,
+
+  database: mongodbAdapter(db, { client }),
 
   emailAndPassword: {
     enabled: true,
@@ -29,7 +27,6 @@ export const auth = betterAuth({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     },
-
     github: {
       clientId: process.env.GITHUB_CLIENT_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
